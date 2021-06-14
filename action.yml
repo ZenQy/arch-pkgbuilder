@@ -17,6 +17,7 @@ branding:
 runs:
   using: docker
   image: docker://archlinux:base-devel
+  entrypoint: entrypoint.sh
   args:
     - "${{ inputs.srcdir }}"
     - "${{ inputs.outdir }}"
