@@ -14,19 +14,17 @@ if [[ ! -e $srcdir/PKGBUILD ]]; then
 fi
 
 # Prepare the environment
-pacman -Syu --noconfirm --noprogressbar --needed base-devel devtools btrfs-progs dbus
-
-dbus-uuidgen --ensure=/etc/machine-id
-
+pacman -Syu --noconfirm --noprogressbar --needed base-devel namcap
 sed -i "s|MAKEFLAGS=.*|MAKEFLAGS=-j$(nproc)|" /etc/makepkg.conf
 
-useradd -m user
-echo "user ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
+# useradd -m user
 cd $srcdir
-chown -R user ./
+# chown -R user ./
 
-# Build the package
-extra-x86_64-build -- -U user
+# Build and Check the package
+namcap PKGBUILD
+makepkg
+namcap *.pkg.tar.zst
 
 # Save the artifacts
 mkdir -p $outdir
