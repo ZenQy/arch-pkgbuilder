@@ -13,13 +13,8 @@ if [[ ! -e $srcdir/PKGBUILD ]]; then
     exit 1
 fi
 
-# Prepare the environment
-pacman -Syu --noconfirm --noprogressbar --needed base-devel namcap
-sed -i "s|MAKEFLAGS=.*|MAKEFLAGS=-j$(nproc)|" /etc/makepkg.conf
-
-# useradd -m user
 cd $srcdir
-# chown -R user ./
+sudo chown -R build ./
 
 # Build and Check the package
 namcap PKGBUILD
@@ -28,4 +23,4 @@ namcap *.pkg.tar.zst
 
 # Save the artifacts
 mkdir -p $outdir
-cp *.pkg.* $outdir/
+cp *.pkg.tar.* $outdir/
