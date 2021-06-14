@@ -16,8 +16,7 @@ branding:
   icon: archive
 runs:
   using: docker
-  image: docker://archlinux:base-devel
-  entrypoint: entrypoint.sh
+  image: Dockerfile
   args:
     - "${{ inputs.srcdir }}"
     - "${{ inputs.outdir }}"
