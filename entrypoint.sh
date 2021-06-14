@@ -3,6 +3,8 @@
 srcdir=$1
 outdir=$2
 
+echo $outdir
+
 if [[ ! -d $srcdir ]]; then
     echo "$srcdir should be a directory."
     exit 1
@@ -24,3 +26,6 @@ namcap *.pkg.tar.zst
 # Save the artifacts
 mkdir -p $outdir
 cp *.pkg.tar.* $outdir/
+
+ls -l $srcdir
+ls -l $outdir
