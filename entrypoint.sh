@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 srcdir=$1
 outdir=$2
