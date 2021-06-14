@@ -1,10 +1,10 @@
-#!/bin/sh
+#!/bin/bash
 
 srcdir=$1
 outdir=$2
 
-if [[ ! -d $srcdir ]] || [[ ! -d $outdir ]]; then
-    echo "$srcdir and $outdir should be a directory."
+if [[ ! -d $srcdir ]]; then
+    echo "$srcdir should be a directory."
     exit 1
 fi
 
