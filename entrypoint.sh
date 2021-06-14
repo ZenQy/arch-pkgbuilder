@@ -21,6 +21,7 @@ dbus-uuidgen --ensure=/etc/machine-id
 sed -i "s|MAKEFLAGS=.*|MAKEFLAGS=-j$(nproc)|" /etc/makepkg.conf
 
 useradd -m user
+echo "user ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 cd $srcdir
 chown -R user ./
 
