@@ -1,5 +1,11 @@
 # Container image that runs your code
-FROM archlinux:base-devel
+FROM archlinux/archlinux:base-devel
+
+# Set user
+RUN useradd -m build
+RUN echo "build ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers.d/$UGNAME
+
+USER build
 
 # Copies your code file from your action repository to the filesystem path `/` of the container
 COPY entrypoint.sh /entrypoint.sh
