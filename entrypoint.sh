@@ -24,9 +24,5 @@ makepkg
 namcap *.pkg.tar.zst
 
 # Save the artifacts
-
 cp *.pkg.tar.* ../$outdir/
 
-cd ../
-ls -l $srcdir
-ls -l $outdir
