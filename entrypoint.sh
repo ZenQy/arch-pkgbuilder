@@ -12,6 +12,8 @@ if [[ ! -e $pkgdir/PKGBUILD ]]; then
     exit 1
 fi
 
+sudo chown -R $whoami /github/home $pkgdir
+
 # Build and Check the package
 cd $pkgdir
 namcap PKGBUILD
