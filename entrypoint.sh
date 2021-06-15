@@ -20,7 +20,7 @@ cd $srcdir
 
 # Build and Check the package
 namcap PKGBUILD
-makepkg
+makepkg -s --noconfirm
 namcap *.pkg.tar.zst
 
 # Save the artifacts
