@@ -8,9 +8,9 @@ inputs:
     required: true
     default: ""
   outdir:
-    description: Output directory to store the built package (relative to $HOME)
+    description: relative output directory to store the built package
     required: false
-    default: $HOME/arch-packages
+    default: arch-packages
 branding:
   color: blue
   icon: archive
