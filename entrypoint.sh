@@ -1,8 +1,8 @@
 #!/bin/bash
 
 echo $PWD
+ls -l ../
 srcdir=$1
-outdir=$2
 
 if [[ ! -d $srcdir ]]; then
     echo "$srcdir should be a directory."
@@ -14,15 +14,10 @@ if [[ ! -e $srcdir/PKGBUILD ]]; then
     exit 1
 fi
 
-sudo mkdir -p $outdir
-sudo chown -R build $srcdir $outdir
+sudo chown -R build $srcdir /github/home
 cd $srcdir
 
 # Build and Check the package
 namcap PKGBUILD
 makepkg -s --noconfirm
 namcap *.pkg.tar.zst
-
-# Save the artifacts
-cp *.pkg.tar.* ../$outdir/
-

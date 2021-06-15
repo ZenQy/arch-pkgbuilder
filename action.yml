@@ -3,14 +3,10 @@
 name: Arch Linux PKGBUILD builder
 description: Build an Arch Linux package
 inputs:
-  srcdir:
-    description: "Path to directory containing PKGBUILD file"
+  pkgdir:
+    description: "directory containing PKGBUILD file"
     required: true
     default: ""
-  outdir:
-    description: relative output directory to store the built package
-    required: false
-    default: arch-packages
 branding:
   color: blue
   icon: archive
@@ -18,5 +14,4 @@ runs:
   using: docker
   image: Dockerfile
   args:
-    - "${{ inputs.srcdir }}"
-    - "${{ inputs.outdir }}"
+    - "${{ inputs.pkgdir }}"
