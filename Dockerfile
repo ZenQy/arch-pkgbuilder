@@ -6,8 +6,8 @@ ENV USER='build'
 # Set user
 RUN useradd -m ${USER}
 RUN echo "${USER} ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
-
 # Prepare the environment
+RUN chown -R ${USER} /github/home /github/workspace
 RUN pacman -Syu --noconfirm --needed base-devel namcap
 RUN sed -i "s|MAKEFLAGS=.*|MAKEFLAGS=-j$(nproc)|" /etc/makepkg.conf
 
